@@ -99,6 +99,7 @@ class save_progress extends external_api {
 
         // Update Moodle completion if target reached.
         if ($completed) {
+             $course = get_course($cm->course);
             require_once($CFG->libdir . '/completionlib.php');
             $completion = new \completion_info($course);
             if ($completion->is_enabled($cm)) {
